@@ -14,6 +14,6 @@ GPT4 修改了 jumpToSelectedEngine ，划词的同时获取当前网页的域�
     https://www.whois.com/whois/%s
 
 安装脚本之后，也可以直接将 setting.json 导入。
-
+![image](https://github.com/Roc-kit/SearchEngineJumpPlus/blob/master/Settings.png)
 
 ## 具体情况参考原始仓库： https://github.com/MUTED64/SearchEngineJumpPlus
