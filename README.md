@@ -1,3 +1,10 @@
+# SearchEngineJumpPlus 搜索引擎快捷跳转+SEO
+
+## 说明
+划词的同时获取当前网页的域名URL，添加SEO相关的功能。其他未改变。
+
+---
+
 # SearchEngineJumpPlus 搜索引擎快捷跳转+
 
 <div align="center">
