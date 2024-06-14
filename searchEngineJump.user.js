@@ -1,16 +1,16 @@
 // ==UserScript==
-// @name           SearchEngineJumpPlus 搜索引擎快捷跳转+
-// @author         NLF & 锐经(修改) & iqxin(修改) & MUTED64(修改)
-// @contributor    MUTED64
-// @description    Fork版本搜索引擎跳转脚本，优化一些使用体验
-// @version        5.31.15
+// @name           SearchEngineJumpPlus 搜索引擎快捷跳转+SEO
+// @author         NLF & 锐经 (修改) & iqxin(修改) & MUTED64(修改)
+// @contributor    GPT4
+// @description    划词的同时获取当前网页的域名 URL，添加 SEO 相关的功能
+// @version        1.0
 // @created        2011-07-02
-// @lastUpdated    2023-06-13
+// @lastUpdated    2024-06-14
 
 // @namespace      https://greasyfork.org/en/scripts/454280-searchenginejumpplus
 // @homepage       https://github.com/MUTED64/SearchEngineJumpPlus
 // @require        https://greasyfork.org/scripts/408009-togbk/code/toGBK.js?version=832799
-// @require        https://greasyfork.org/scripts/456710-searchenginejumpplusenginelist/code/SearchEngineJumpPlusEngineList.js?version=1177377
+// @require        https://raw.githubusercontent.com/Roc-kit/SearchEngineJumpPlus/master/engineList.js
 // @require        https://greasyfork.org/scripts/456711-searchenginejumpplusrules/code/SearchEngineJumpPlusRules.js?version=1204556
 // @resource       GLOBAL_STYLE https://greasyfork.org/scripts/455977-searchenginejumpplusglobalstyle/code/SearchEngineJumpPlusGlobalStyle.user.css
 // @icon           data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFSElEQVR4nMWXX4hdVxXGf2vfe89kJg61ia0DYzMTMWnoQ0FJtKmtJsFixT8DBSmYtGMLgq0PCqMEKwmxYzSGyUPBB7XRNi0FC6JtwYovgcS0klJD8SHakoExYhLQFkwn9/aeOfv7fDi3SStJ5o4muN4O7L32b33rz94H/s8WS10cvR3yVQaY++wnkESkwDK2sMy1EwXDtzRRziBhu+dGDG48smSA5kUP//wmAFIkrNwiGMOsBzYAQwTzEEeBY8BJO1fYtF+4laGPv/i/Afz1C1sAYwngZiKmsDcDI0DrHUtL4DRwMGAmUnVcCtpHPsrQbS/1DZDe+VFHblKziIjYBjwD3Iu5ARBwBjgJnAkwMAa+z+ZZqXEX8VZg0T784aUDzH3uk0DtVQvlVsMjwGpMB3gauAu8ieB2YDPwxR5gF/gQ+MeoNUFzACI4d+imvgDOp0BVRWo2AW62eRi8wvY/wNtrgGhDL+7a/gIcBLYBu4HrsPdSzr8K/JlcLk2BaCQstSxN2VptuYO93an7WES0UyORGg1Wfu0QKivyQhfb56yhn4B3Ynew1kD1oDTfJF20vi8NYBvjMVubbWHrOdtPhwaAYPVvfs8Hf1u32bJbDtXVbgFvAj4AOgTGzhPhGMdV/wCvbtmAJSyttzRiuWv7CdttAlY/f/iimwdvfQGiAfmtczg/jnOJ8/txtRbnvgAu6FSPtg1AC3wGPAvgWGRYqiSowLwC1Ru4GoFyFPc3ZM8DfGPLB1jZXlhe74sS6AAc+O6vL+tg6LaX2LP/SSA6tkpcYeee36/0D/C7Ve9BwZs97iLMEMDAE5N07z1wSQebvl/y3KkAGDIUsrHpRp8ACeDGw38kZdPMPtrILhvZ1yZ5TZJxvnwuW40GzSSaDa1vJq1oJXVbKZ9qpv5qoO6Cqr5ULB+zfNrygOX7LS+PlCgeu+eimz/1w0yWaTTScIqYTEERcDoiXovFauddAAA22CeRDyKD/Bnkbd32PNgUj09S/GwrUMt+x14hiWVFI1LEVyPidggi4hfOnuv3nr8AEGC5sj1j+4TtAcu7i4HlDwLLqRawMmtmnidn6JYLGIa7C/mbwHeAgYATQexPjVCVxcZd7SUACDCEfRyznXoMr8Sawf4lcDdwI7AKWAdss/0r2dOyr6kFpCn7hiyPRlDY5mM7z10W4F1KFT+/p6ZwDkgT2HuN19Tz3yXWG+NnJ8uR9h0FSStSRAFBwAmbpu3xbP/T9rzkp2zvtt2RzcvfG15EAaC8/8m6FkgmpWdsTyD/COtv9esnj1haZXvEtiXP2d5jc6es+3qHv8/2uO1v2d4hedA2H/n2vxZX4LwS+78E1PcDqprAOPZao9Gxs5PNkc6dXUKnIuI1Z8+lRijLo8AR2+OWqeeBS8n7bE8bd2x4Zc97FwcAaP307vqyiXi7QzBi7OyXGel8GkJEBAFUWUREIXlnL/LCvgBheZ9h2lLHyvxp5rrFAZZiG3e16zliBm3vsD0lu6i5ja0awppWrjrKmeOPjAL/UQP/rf1h11BPJHckT/dkL+vDjeXC0pRy3qGcB22x9oHZKwcAcPTh5UimzrWnexGXlrCFlAvlakq5eiiX3eLtSXnFAABe3j1c/0PgTp1z77NUKmesjHMulKuttq9X/eq+sgAAx35wTZ0OqWNrWqr2KVelqoqcF3DOL1r5dStfHQCoW03K9ApuWrnam/PCnHN+StZDRHSK1jLgCnXBpeymr/8dS+SFbmH7eiu/TkQnNRrkqmL20XVXFwBg7QOzRASSsDJFaxndssPso+uu9tH92b8BowSyPc/iZtEAAAAASUVORK5CYII=
@@ -44,7 +44,7 @@
     if (window.self != window.top) return;
 
     console.info(
-      `\n%c ${GM_info.script.name} v${GM_info.script.version} \n%c 问题反馈(GitHub):\t\thttps://github.com/MUTED64/SearchEngineJumpPlus/issues/new\t\t\t\t\t\t\t\n%c 问题反馈(GreasyFork):\thttps://greasyfork.org/scripts/454280-searchenginejumpplus-搜索引擎快捷跳转/feedback\t\n`,
+      `\n%c ${GM_info.script.name} v${GM_info.script.version} \n%c 问题反馈 (GitHub):\t\thttps://github.com/MUTED64/SearchEngineJumpPlus/issues/new\t\t\t\t\t\t\t\n%c 问题反馈 (GreasyFork):\thttps://greasyfork.org/scripts/454280-searchenginejumpplus-搜索引擎快捷跳转/feedback\t\n`,
       "color:#eee;background:#444;padding:6px 0;border-radius:6px 6px 0 0;",
       "color:#444;background:#eee;padding:6px 0;border-radius:0 6px 0 0",
       "color:#444;background:#eee;padding:6px 0;border-radius:0 0 6px 6px;"
@@ -109,27 +109,27 @@
       status: 1,
       message:
         "$相关说明$(status: 这个在将来或许很重要)..." +
-        "(version: 若有新功能加入,靠这个版本号识别)..." +
-        "(addSearchItems: 允许更新时,添加新的搜索网站到你的搜索列表)..." +
-        "(modifySearchItems: 允许更新时,修改你的搜索列表中的项目)..." +
-        "(closeBtn: 设置页面右上角的“关闭”按钮是否显示。true显示,false隐藏)..." +
-        "(newtab: 新标签页打开。0为默认设置,1为新标签页打开)..." +
-        "(foldlist: 折叠当前搜索分类列表。true为折叠,false为展开。)..." +
-        "(setBtnOpacity: 设置按钮的透明度,值为0-1之间的数,0为透明,1为完全显示,中间值半透明。注：-1为直接关闭按钮,关闭之前请确定自己知道如何再次打开它)..." +
-        "(debug: debug模式,开启后,控制台会输出一些信息,“关闭并保存”按钮将不会在刷新页面)..." +
-        "(fixedTop: 将搜索栏固定到顶端。 true开启,false关闭)..." +
-        "(fixedTopUpward: 固定顶端后，搜索栏下拉不会出现，只有上拉时才出现。 true开启,false关闭)..." +
-        "(baiduOffset: 在百度页面鼠标划过的菜单会出现位移,若有使用其他的style样式,可以修改这个来修复二级菜单的偏移)..." +
-        "(getIcon: 自己添加搜索后获取图标的方式。0为自动，能连接谷歌的情况下用谷歌获取，无法连接的情况下，域名加favicon.ico获取；1为域名加favicon获取，2为使用谷歌获取，3为使用dnspot的服务获取(不建议使用)。或者添加网址，关键字使用%s代替，未测试)..." +
+        "(version: 若有新功能加入，靠这个版本号识别)..." +
+        "(addSearchItems: 允许更新时，添加新的搜索网站到你的搜索列表)..." +
+        "(modifySearchItems: 允许更新时，修改你的搜索列表中的项目)..." +
+        "(closeBtn: 设置页面右上角的“关闭”按钮是否显示。true 显示，false 隐藏)..." +
+        "(newtab: 新标签页打开。0 为默认设置，1 为新标签页打开)..." +
+        "(foldlist: 折叠当前搜索分类列表。true 为折叠，false 为展开。)..." +
+        "(setBtnOpacity: 设置按钮的透明度，值为 0-1 之间的数，0 为透明，1 为完全显示，中间值半透明。注：-1 为直接关闭按钮，关闭之前请确定自己知道如何再次打开它)..." +
+        "(debug: debug 模式，开启后，控制台会输出一些信息，“关闭并保存”按钮将不会在刷新页面)..." +
+        "(fixedTop: 将搜索栏固定到顶端。true 开启，false 关闭)..." +
+        "(fixedTopUpward: 固定顶端后，搜索栏下拉不会出现，只有上拉时才出现。true 开启，false 关闭)..." +
+        "(baiduOffset: 在百度页面鼠标划过的菜单会出现位移，若有使用其他的 style 样式，可以修改这个来修复二级菜单的偏移)..." +
+        "(getIcon: 自己添加搜索后获取图标的方式。0 为自动，能连接谷歌的情况下用谷歌获取，无法连接的情况下，域名加 favicon.ico 获取；1 为域名加 favicon 获取，2 为使用谷歌获取，3 为使用 dnspot 的服务获取 (不建议使用)。或者添加网址，关键字使用%s代替，未测试)..." +
         "(allOpen:一键搜索，点击相关分类后，打开该分类下的所有搜索)..." +
-        "(HideTheSameLink:隐藏同站链接。默认开启,百度页面会隐藏百度搜索。如果想在同一个搜索网站,但是想通过不同语言来搜索, 可以选择false来实现)..." +
-        "(center:是否居中显示，主要是为了兼容脚本 ac 百度  ： 0 不居中，强制在左。 1, 强制居中 。 2,自动判断)..." +
-        "(icon: 图标的显示方式, 0 关闭文字, 只保留图标, 1 显示网站图标,2 显示抽象图标。当脚本中不存在抽象图标时,显示网站图标)..." +
-        "(transtion: 是否有动画效果, true为开启所有动画效果,false关闭所有动画(包括模糊效果)。)" +
-        "(selectSearch: 划词搜索功能, true为开启划词搜索,false关闭)" +
-        "(engineDetails: 第一个值为分类列表标题名称,第二个值与enginelist相关联,必须匹配,第三个值true为显示列表,false为禁用列表。排列顺序与跳转栏上的显示顺序相同，可以用它将分类列表按自己喜欢排序)..." +
+        "(HideTheSameLink:隐藏同站链接。默认开启，百度页面会隐藏百度搜索。如果想在同一个搜索网站，但是想通过不同语言来搜索，可以选择 false 来实现)..." +
+        "(center:是否居中显示，主要是为了兼容脚本 ac 百度：0 不居中，强制在左。1, 强制居中。2，自动判断)..." +
+        "(icon: 图标的显示方式，0 关闭文字，只保留图标，1 显示网站图标，2 显示抽象图标。当脚本中不存在抽象图标时，显示网站图标)..." +
+        "(transtion: 是否有动画效果，true 为开启所有动画效果，false 关闭所有动画 (包括模糊效果)。)" +
+        "(selectSearch: 划词搜索功能，true 为开启划词搜索，false 关闭)" +
+        "(engineDetails: 第一个值为分类列表标题名称，第二个值与 enginelist 相关联，必须匹配，第三个值 true 为显示列表，false 为禁用列表。排列顺序与跳转栏上的显示顺序相同，可以用它将分类列表按自己喜欢排序)..." +
         "(engineList: 各个搜索的相关信息)" +
-        "(rules: 已弃用--将搜索样式插入到目标网页,同脚本中的rules设置相同,优先级高于脚本中自带的规则。自带了360搜索,可仿写)...",
+        "(rules: 已弃用--将搜索样式插入到目标网页，同脚本中的 rules 设置相同，优先级高于脚本中自带的规则。自带了 360 搜索，可仿写)...",
       version: GM_info.script.version,
       addSearchItems: true,
       modifySearchItems: true,
@@ -654,7 +654,7 @@
         this.matchedRule?.class
           ? (this.container.className += ` ${this.matchedRule.class}`)
           : {};
-        // 由于与要插入网页的样式无法很好的兼容,更改源网页的样式
+        // 由于与要插入网页的样式无法很好的兼容，更改源网页的样式
         if (this.matchedRule?.stylish) {
           GM_addStyle(this.matchedRule.stylish);
         }
@@ -740,7 +740,7 @@
                 ""
               );
             }
-            // gbk编码
+            // gbk 编码
             if (engine.gbk) {
               engineListButton = engineListButton.replace("$gbk$", engine.gbk);
             } else {
@@ -835,7 +835,7 @@
       }
       #addStyle() {
         if (this.matchedRule?.style) {
-          // 判断是否存在脚本 “AC-baidu:重定向优化百度搜狗谷歌搜索_去广告_favicon_双列”
+          // 判断是否存在脚本“AC-baidu:重定向优化百度搜狗谷歌搜索_去广告_favicon_双列”
           if (this.settingData.center == 2) {
             // 自动判断是否添加
             if (
@@ -862,7 +862,7 @@
           this.container.style.cssText = this.matchedRule.style;
         }
 
-        //兼容ac百度中lite选项, fixedtop和正常的不一样
+        //兼容 ac 百度中 lite 选项，fixedtop 和正常的不一样
         setTimeout(function () {
           if (
             document.querySelector(".AC-baiduLiteStyle") &&
@@ -908,6 +908,7 @@
           }
         }
       }
+
       #jumpToSelectedEngine(e) {
         const target = e.target;
 
@@ -925,13 +926,16 @@
           }
         }
 
-        // 如果搜索内容是通过某一网站搜索, 就去掉。 例: 0 site:zhihu.com  只保留0, 后面的网站会去掉
+        // 获取当前页面的域名和URL
+        const currentDomain = window.location.hostname;
+        const fullUrl = window.location.href;
+
+        // 如果搜索内容是通过某一网站搜索, 就去掉。例: 0 site:zhihu.com 只保留0, 后面的网站会去掉
         if (!this.settingData.HideTheSameLink) {
           searchKeyword = searchKeyword.replace(/site:[^\s]+/, "");
         }
 
-        // 编码 解码
-        // 对搜索词编码 (未做解码处理，浏览器自动处理) 网站1688采用gbk编码
+        // 对搜索词进行编码
         const ogbk = target.getAttribute("gbk");
         if (ogbk) {
           searchKeyword = toGBK(searchKeyword);
@@ -947,7 +951,6 @@
           target.classList.contains("sej-drop-list-trigger")
         ) {
           var list = this.engineList[target.dataset.iqxincategory];
-
           for (var i = 0; i < list.length; i++) {
             if (
               list[i].url.indexOf("site:") < 0 &&
@@ -962,7 +965,7 @@
           return;
         }
 
-        // 如果有post请求
+        // 如果有POST请求
         var postSign = targetURL?.indexOf("$post$");
         if (postSign && postSign !== -1) {
           target.addEventListener("click", function (e) {
@@ -979,9 +982,10 @@
           document.body.appendChild(f);
           f.submit();
         } else {
-          target.href = target
-            .getAttribute("url")
-            .replaceAll("%s", searchKeyword);
+          targetURL = targetURL.replaceAll("%s", searchKeyword);
+          targetURL = targetURL.replaceAll("%currentUrl%", encodeURIComponent(fullUrl));
+          targetURL = targetURL.replaceAll("%currentDomain%", encodeURIComponent(currentDomain));
+          target.href = targetURL;
         }
 
         if (this.#isOnSelectSearchMode()) {
@@ -991,6 +995,7 @@
           target.target = "_top";
         }
       }
+
       #getElementBySelector(selector) {
         if (selector?.startsWith("css;")) {
           return document.querySelector(selector.slice(4));
@@ -1100,7 +1105,7 @@
           ' <span class="iqxin-set-del" title="删除 Delete"><img class="sej-engine-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAADAFBMVEUAAADsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVHsbVH///9VVVVWVlZXV1dYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlqampra2tsbGxtbW1ubm5vb29wcHBxcXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh5eXl6enp7e3t8fHx9fX1+fn5/f3+AgICBgYGCgoKDg4OEhISFhYWGhoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGSkpKTk5OUlJSVlZWWlpaXl5eYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5ubm6urq7u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3Ozs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7///8dej9TAAAAU3RSTlMAAABm7P/sZgAAABPO////zhQAAB/i/////////+IfAAAe4fvk4AAAAAAd/+Q3GxwAFR85FQBjz+LPY+v////r6//////rZM/h4c9jABUdHRUAAP0EcPoAAAEuSURBVHic7ZRnc8IwDIbdEUZHGB0kDsMOMcOMttBBB93Qvcj//y9VjB0Czh13/dz3ixT5OVmSYyMktLK6tm74oYxEMpVGUW1sbm2bM8DMZHP5OWBnd2+/YNnYAWHbKhRL5cocQKjrWFWPuSDmVS3HpUQu1eoNQkiTM9xqd7oHoG6n3cKMNyHcqNfQ4VGPUsr7nh0FbK/PIdw7PkGnZwOZNrqF9AfnF+jyaigLixYp/eH1Dbq9u4eAHyOAHh5HaPz0DCnjANjm5fUNvX98QoGCxyo5Fjmh0K/vH2hzAi0KnqnymMgJrU6gzemQBM+DZpX1/XBYUyAYTTAuZTUg+Aw8Zf+BvwJLR730sPTjXgD0H2YB0BUClXKpGAeE1y+fy2ZMfX12gdOpZMLQAfkE/AL7e5vGZF+dOQAAAABJRU5ErkJggg=="></span>' +
           "</span>";
         var details = engineList.engineCategories;
-        // 若根据数组长度获取,负数引导的为属性,不再length长度之内,所以来个大体的数字,当都为空时,结束循环
+        // 若根据数组长度获取，负数引导的为属性，不再 length 长度之内，所以来个大体的数字，当都为空时，结束循环
         // var detailsLength = details.length;
         var detailsLength = 99;
         for (let i = 0; i < detailsLength; i++) {
@@ -1194,15 +1199,15 @@
 
         var btnStr2 =
           "<div>" +
-          "<span id='xin-reset' title='慎点,出厂重置'>清空设置</span>" +
+          "<span id='xin-reset' title='慎点，出厂重置'>清空设置</span>" +
           "<span id='xin-modification' title='edit 分享自己的配置或清空配置'>配置文件</span>" +
           // "<span id='xin-importing' title='importing 导入更为专业的搜索引擎'>导入</span>" +
-          "<span id='xin-selectSearch' title='划词搜索, 只有非搜索页面才会生效, 开关功能需要刷新页面'>" +
+          "<span id='xin-selectSearch' title='划词搜索，只有非搜索页面才会生效，开关功能需要刷新页面'>" +
           "<label>划词搜索<input id='iqxin-selectSearch' type='checkbox' name='' " +
           selectSearch_checked +
           " style='vertical-align:middle;'></label>" +
           "</span>" +
-          "<span id='xin-transtion' title='动画,该设置需要刷新页面生效'>" +
+          "<span id='xin-transtion' title='动画，该设置需要刷新页面生效'>" +
           "<label>动画<input id='iqxin-transtion' type='checkbox' name='' " +
           transition_checked +
           " style='vertical-align:middle;'></label>" +
@@ -1212,26 +1217,26 @@
           foldlist_checked +
           " style='vertical-align:middle;'></label>" +
           "</span>" +
-          "<span id='iqxin-fixedTopS' title='fixedTop 当滚动页面时,固定到页面顶端。某些页面的样式存在问题'>" +
+          "<span id='iqxin-fixedTopS' title='fixedTop 当滚动页面时，固定到页面顶端。某些页面的样式存在问题'>" +
           "<label>固定到顶端<input id='iqxin-fixedTop' type='checkbox' name='' " +
           fixedTop_checked +
           " style='vertical-align:middle;'></label>" +
           "</span>" +
-          "<span id='iqxin-fixedTopUpward' title='固定到顶端后,仅向上滚动才显示,需要刷新网页生效'>" +
+          "<span id='iqxin-fixedTopUpward' title='固定到顶端后，仅向上滚动才显示，需要刷新网页生效'>" +
           "<label>仅上拉显示<input id='iqxin-fixedTopUpward-item' type='checkbox' name='' " +
           fixedTopUpward_checked +
           " style='vertical-align:middle;'></label>" +
           "</span>" +
-          "<span id='xin-HideTheSameLink' title='隐藏同站链接,如果想在同一个搜索网站,但是想通过不同语言来搜索, 可以取消该选项'>" +
+          "<span id='xin-HideTheSameLink' title='隐藏同站链接，如果想在同一个搜索网站，但是想通过不同语言来搜索，可以取消该选项'>" +
           "<label>隐藏同站链接<input id='iqxin-HideTheSameLink' type='checkbox' name='' " +
           HideTheSameLink_checked +
           " style='vertical-align:middle;'></label>" +
           "</span>" +
-          "<span id='xin-setBtnOpacity' title='设置按钮透明度,需要刷新页面'>设置按钮透明度 <input type='range' step='0.05'  min='0' max='1' value='" +
+          "<span id='xin-setBtnOpacity' title='设置按钮透明度，需要刷新页面'>设置按钮透明度 <input type='range' step='0.05'  min='0' max='1' value='" +
           (settingData.setBtnOpacity < 0
             ? -settingData.setBtnOpacity
             : settingData.setBtnOpacity) +
-          "' id='setBtnOpacityRange'><i style='display:inline-block;width:3em;text-align:center;' class='iqxin-setBtnOpacityRangeValue' title='按钮 显示/隐藏(非透明)),请确定知道自己如何再次打开; 火狐非高级玩家建议别禁用'></i></span>" +
+          "' id='setBtnOpacityRange'><i style='display:inline-block;width:3em;text-align:center;' class='iqxin-setBtnOpacityRangeValue' title='按钮 显示/隐藏 (非透明)),请确定知道自己如何再次打开; 火狐非高级玩家建议别禁用'></i></span>" +
           "</div>";
         // "<div><span>test</span></div>";
         btnEle2.innerHTML = btnStr2;
@@ -1250,7 +1255,7 @@
           allOpen_checked +
           " style='vertical-align:middle;'></label>" +
           "</span>" +
-          "<span id='xin-centerDisplay' title='center 居中显示。主要是兼容AC-baidu:重定向优化百度搜狗谷歌搜索_去广告_favicon_双列'>居中：" +
+          "<span id='xin-centerDisplay' title='center 居中显示。主要是兼容 AC-baidu:重定向优化百度搜狗谷歌搜索_去广告_favicon_双列'>居中：" +
           "<select id='iqxin-center'>" +
           "<option value='original'" +
           (settingData.center == 0 ? "selected" : "") +
@@ -1332,12 +1337,12 @@
           location.reload();
         }
       }
-      // 增加 “添加删除框”
+      // 增加“添加删除框”
       addDel(e) {
         if (e.target.classList.contains("iqxin-btn-active")) {
           this.addDelremove();
         } else {
-          // console.log("不存在,增加增加");
+          // console.log("不存在，增加增加");
           var obtn = document.querySelector("#xin-addDel");
           obtn.classList.add("iqxin-btn-active");
 
@@ -1365,7 +1370,7 @@
           olistAdd.classList.add("iqxin-set-active");
         }
       }
-      // 关闭 “添加删除框”
+      // 关闭“添加删除框”
       addDelremove(bool) {
         var obtn = document.querySelector(".iqxin-btn-active");
         if (obtn) {
@@ -1384,7 +1389,7 @@
         this.addItemBoxRemove();
       }
 
-      // 界面,框：添加新的搜索
+      // 界面，框：添加新的搜索
       addItemBox() {
         this.isOnline();
         this.addItemBoxRemove();
@@ -1392,9 +1397,9 @@
         var newDiv = document.createElement("div");
         newDiv.id = "newSearchBox";
         newDiv.style.cssText = "top:43%;opacity:0.1;";
-        newDiv.innerHTML = `<span>标&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp题 : </span><input id='iqxin-newTitle' placeholder='必填' onfocus='this.select()' /> <br/><br/>
-             <span>链&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp接 : </span><input id='iqxin-newLink' placeholder='必填' onfocus='this.select()' /> <br/><br/>
-             <span>图&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp标 : </span><input id='iqxin-newIcon' placeholder='选填,留空则自动获取' onfocus='this.select()' /> <br/><br/>
+        newDiv.innerHTML = `<span>标&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp 题 : </span><input id='iqxin-newTitle' placeholder='必填' onfocus='this.select()' /> <br/><br/>
+             <span>链&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp 接 : </span><input id='iqxin-newLink' placeholder='必填' onfocus='this.select()' /> <br/><br/>
+             <span>图&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp 标 : </span><input id='iqxin-newIcon' placeholder='选填,留空则自动获取' onfocus='this.select()' /> <br/><br/>
              <span>打开方式 :
              <select id="iqxin-newTarget" style="border-radius: 4px;border: none;padding: 2px 0 2px 2px">
              <option value="default">新标签页打开</option>
@@ -1413,7 +1418,7 @@
         }, 10);
         document.querySelector("#iqxin-newTitle").focus();
       }
-      // 内部逻辑,：添加新的搜索
+      // 内部逻辑，：添加新的搜索
       addItemEnger() {
         var otitle, olink, oimg, oblank;
         otitle = document.querySelector("#iqxin-newTitle").value;
@@ -1465,7 +1470,7 @@
 
         this.parentNode.insertBefore(ospan, this.parentNode.lastChild);
 
-        // 添加完成,移除添加框
+        // 添加完成，移除添加框
         this.addItemBoxRemove();
       }
       addItemBoxRemove(ele) {
@@ -1529,7 +1534,7 @@
         }
       }
 
-      // 界面, 框: 添加新的搜索列表
+      // 界面，框：添加新的搜索列表
       addSearchListBox() {
         var odiv = document.querySelector("#newSearchListBox");
         if (odiv) {
@@ -1545,9 +1550,9 @@
 
         newDiv.innerHTML =
           "" +
-          "<span>列表名称: </span><input id='iqxin-newSearchListName' onfocus='this.select()'>" +
+          "<span>列表名称：</span><input id='iqxin-newSearchListName' onfocus='this.select()'>" +
           "<br><br>" +
-          "<span>内部名称: </span><input id='iqxin-newSearchListInnerName' onfocus='this.select()' value='" +
+          "<span>内部名称：</span><input id='iqxin-newSearchListInnerName' onfocus='this.select()' value='" +
           hash +
           "'>" +
           "<br><br>" +
@@ -1644,13 +1649,13 @@
 
         var newDiv = document.createElement("div");
         newDiv.id = "newSearchBox";
-        // 从鼠标点击所在的项目展开菜单(2021-03-16,从上线至今,动画一直有卡顿现象)
+        // 从鼠标点击所在的项目展开菜单 (2021-03-16，从上线至今，动画一直有卡顿现象)
         // newDiv.style.cssText = "top:"+(e.screenY-120) +"px;left:"+(e.screenX-140) +"px;";
         newDiv.style.cssText = "top:43%;opacity:0.1;";
         var innerHTML = `
-          <span>标&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp题 : </span><input id="iqxin-newTitle" placeholder="必填" onfocus="this.select()" value="${otitle}" /> <br/><br/>
-          <span>链&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp接 : </span><input id="iqxin-newLink" placeholder="必填" onfocus="this.select()" value="${olink}" /> <br/><br/>
-          <span>图&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp标 : </span><input id="iqxin-newIcon" placeholder="选填,留空则自动获取" onfocus="this.select()" value="${oicon}" /> <br/><br/>
+          <span>标&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp 题 : </span><input id="iqxin-newTitle" placeholder="必填" onfocus="this.select()" value="${otitle}" /> <br/><br/>
+          <span>链&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp 接 : </span><input id="iqxin-newLink" placeholder="必填" onfocus="this.select()" value="${olink}" /> <br/><br/>
+          <span>图&nbsp;&nbsp;&nbsp&nbsp&nbsp&nbsp&nbsp 标 : </span><input id="iqxin-newIcon" placeholder="选填,留空则自动获取" onfocus="this.select()" value="${oicon}" /> <br/><br/>
           <span>打开方式 :
               <select id="iqxin-newTarget" style="border-radius: 4px;border: none;padding: 2px 0 2px 2px">
                   ${strblank}
@@ -1699,7 +1704,7 @@
           this.editTemp.removeAttribute("data-iqxingbk");
         }
 
-        // 修改完成,移除添加框
+        // 修改完成，移除添加框
         this.addItemBoxRemove();
       }
 
@@ -1718,7 +1723,7 @@
             : "空";
           element.classList.add("iqxin-pointer-events");
         } else {
-          //  存在编辑的标题,但与点击的不是同一个节点
+          //  存在编辑的标题，但与点击的不是同一个节点
           if (flag) {
             flag.parentNode.innerHTML = flag.parentNode.firstChild.value;
           }
@@ -1751,7 +1756,7 @@
         }
       }
 
-      // 高级菜单,配置文件编辑界面
+      // 高级菜单，配置文件编辑界面
       editCodeBox() {
         console.log("原始数据： ", settingData);
         var userSetting = GM_getValue("searchEngineJumpData");
@@ -1768,7 +1773,7 @@
         var innerH =
           " " +
           "<p><span style='color:red;font-size:1.2em;'>! ! !</span></br>" +
-          "此处有更多的设置选项,自由度更高,</br>" +
+          "此处有更多的设置选项，自由度更高，</br>" +
           "但设置错误会导致脚本无法运行" +
           "</p>" +
           "<textarea wrap='off' cols='45' rows='20' style='overflow:auto;border-radius:4px;'>" +
@@ -1804,7 +1809,7 @@
           box.parentNode.removeChild(box);
         }
       }
-      // “设置按钮” 透明度
+      // “设置按钮”透明度
       setBtnOpacityFun() {
         if (~window.navigator.userAgent.indexOf("Chrome")) {
           var odom = document.querySelector("#setBtnOpacityRange");
@@ -1946,7 +1951,7 @@
       allBoxClose() {
         this.addItemBoxRemove(); // 新的搜索添加框
         this.addDelremove(); //  增加/删除界面
-        this.editCodeBoxClose(); // code编辑框
+        this.editCodeBoxClose(); // code 编辑框
         this.addTitleEditBoxRemove(); //标题编辑框
         this.addItemBoxRemove("#newSearchListBox"); // 添加新的搜索列表
         this.boxClose("#iqxin-sortBox"); // 搜索列表排序
@@ -1960,7 +1965,7 @@
 
         node.addEventListener("mousedown", function (event) {
           ele.style.transition = "null";
-          // offsetLeft 距离 body 的位置, 得到的 dis 即鼠标到窗口左上角的位置
+          // offsetLeft 距离 body 的位置，得到的 dis 即鼠标到窗口左上角的位置
           var disX = event.clientX - ele.offsetLeft;
           var disY = event.clientY - ele.offsetTop;
 
@@ -2020,7 +2025,7 @@
         // 防止跨区域移动
         SettingPanel.prototype.domdropend();
         if (SettingPanel.dragEl.className != that.className) {
-          console.log("移动对象 之前,现在: ", SettingPanel.dragEl.className);
+          console.log("移动对象 之前，现在：", SettingPanel.dragEl.className);
           console.log(that.className);
           return;
         }
@@ -2071,7 +2076,7 @@
         }
       }
 
-      // 判断是否能连接至google
+      // 判断是否能连接至 google
       isOnline() {
         console.log("this.online", this.online);
         if (this.online) return;
@@ -2208,7 +2213,7 @@
         ).selectedIndex;
         var foldlist = document.querySelector("#iqxin-foldlist").checked;
 
-        // 以防不测,重新获取本地配置文件
+        // 以防不测，重新获取本地配置文件
         var getData = GM_getValue("searchEngineJumpData");
         getData.newtab = onewtab;
         getData.foldlist = foldlist;
