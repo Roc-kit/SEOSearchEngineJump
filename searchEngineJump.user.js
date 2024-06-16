@@ -983,8 +983,8 @@
           f.submit();
         } else {
           targetURL = targetURL.replaceAll("%s", searchKeyword);
-          targetURL = targetURL.replaceAll("%currentUrl%", encodeURIComponent(fullUrl));
-          targetURL = targetURL.replaceAll("%currentDomain%", encodeURIComponent(currentDomain));
+          targetURL = targetURL.replaceAll("%currentUrl%", fullUrl);
+          targetURL = targetURL.replaceAll("%currentDomain%", currentDomain);
           target.href = targetURL;
         }
 
